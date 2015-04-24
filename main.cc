@@ -6,5 +6,6 @@
 int main() {
 
 int a, b;
+readint();
 
 }
