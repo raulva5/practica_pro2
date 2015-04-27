@@ -9,5 +9,5 @@ bool be;
 		if(!be) cout << "Error de format" << endl;
 	}
 
+	cout << "Has sortit" << endl;
 }
-cout << "Has sortit" << endl;

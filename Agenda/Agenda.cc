@@ -5,10 +5,13 @@
 
 
 /*   */
+//Constructors
 Agenda::Agenda()
 {
 
 }
+
+//Modificadors
 void Agenda::apuntar_tasca(int i)
 {
 
@@ -34,6 +37,8 @@ bool Agenda::data_posterior()
 {
 	
 }
+
+//Consultors
 void Agenda::consultar_tasca(int i)
 {
 
