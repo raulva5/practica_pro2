@@ -9,7 +9,7 @@
 /** @class Agenda
     @brief Representa una agenda.
  */
-class Comanda {
+class Agenda {
 private:
 
 public:

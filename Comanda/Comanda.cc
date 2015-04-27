@@ -1,6 +1,9 @@
 #include "Comanda.hh"
 
-Comanda();
+Comanda::Comanda()
+{
+
+}
 
 bool Comanda::llegir(bool& be)
 {
