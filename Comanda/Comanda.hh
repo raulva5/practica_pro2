@@ -1,9 +1,11 @@
-/** @file comanda.hh
+/** @file Comanda.hh
     @brief Classe Comanda
  */
 
 #ifndef COMANDA_HH
 #define COMANDA_HH
+#include "../utils.cc"
+#include "../Agenda/Agenda.hh"
 
 /** @class Comanda
     @brief Representa una comanda (linia de text d'entrada).
@@ -21,7 +23,8 @@ public:
     
     /** @brief Llegeix una comanda (linia de text d'entrada) i actualitza la informacio interna perque funcionin be les consultores
     \pre cert
-    \post si s'ha llegit una comanda sense errors sintactics, be = cert i s'escriu la comanda; si la comanda te errors sintactics, be = fals i s'escriu "Error de format"; retorna cert quan la comanda no es "sortir" */
+    \post si s'ha llegit una comanda sense errors sintactics, be = cert i s'escriu la comanda; si la comanda te errors sintactics, 
+    be = fals i s'escriu "Error de format"; retorna cert quan la comanda no es "sortir" */
     bool llegir(bool& be);
     
     // Consultores

@@ -1,11 +1,13 @@
-#include "utils.PRO2"
-#include "Comanda.hh"
-#include <map>
-
+#include "utils.cc"
+#include "./Comanda/Comanda.hh"
 
 int main() {
 
-int a, b;
-readint();
+Comanda c;
+bool be;
+	while(c.llegir(be)){
+		if(!be) cout << "Error de format" << endl;
+	}
 
 }
+cout << "Has sortit" << endl;
