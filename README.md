@@ -21,3 +21,8 @@ git push
 
 #Bajar cambios servidor (Estirar).
 git pull
+
+
+TO DO's
+	- ¿Adició classe Tasca?
+	- Pensar mètode per hora i data
