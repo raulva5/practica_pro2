@@ -21,3 +21,6 @@ git push
 
 #Bajar cambios servidor (Estirar).
 git pull
+
+#Ver cambios servidor
+git remote show origin
