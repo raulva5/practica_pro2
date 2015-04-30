@@ -1,4 +1,4 @@
-tot: main agenda comanda crea
+tot: main token agenda comanda crea
 
 crea: main.o Agenda/Agenda.o Comanda/Comanda.o
 	g++ -o main.x main.o Agenda/Agenda.o Comanda/Comanda.o
@@ -11,6 +11,9 @@ agenda: Agenda/Agenda.hh Agenda/Agenda.cc
 
 comanda: Comanda/Comanda.hh Comanda/Comanda.cc
 	g++ -c -D_GLIBCXX_DEBUG Comanda/Comanda.cc
+
+token: Token/Token.hh Token/Token.cc
+	g++ -c -D_GLIBCXX_DEBUG Token/Token.cc
 
 
 clean:
