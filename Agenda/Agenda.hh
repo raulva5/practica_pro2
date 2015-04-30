@@ -23,7 +23,7 @@ public:
 	
   //Constructors
 	Agenda();
-	Dat iniciar_rellotge();
+	Dat iniciar_hora();
   //Modificadors
     //Tasques
         void apuntar_tasca(int i);
