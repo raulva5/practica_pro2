@@ -13,7 +13,6 @@ class Agenda {
 private:
 
 public:
-	/* Està posat a tot arreu "int i" però faltarà determinar els paràmetres finals*/
 	
   //Constructors
 	Agenda();
