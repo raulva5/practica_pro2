@@ -5,35 +5,47 @@
 #ifndef AGENDA_HH
 #define AGENDA_HH
 #include "../utils.cc"
-#include "Dat.hh"
+#include "../Data/Data.hh"
+#include "../Tasca/Tasca.hh"
+#include "../Comanda/Comanda.hh"
 
 /** @class Agenda
     @brief Representa una agenda.
- */
+*/
+
 class Agenda {
 private:
-
-	Dat dt; // rellotge de tasca
-	Dat dt_int; // rellotge intern
-	map<Dat,Tasca> m;
-	vector<Tasca> m;
+	Data rellotge; // rellotge intern
+	map<Data,Tasca> m; 	//m conte totes les tasques de l'agenda
+						//Ordenades cronologicament
+	vector<Data> v; //v conte la data de les tasques consultades
 
 public:
 	
   //Constructors
 	Agenda();
-	Dat iniciar_hora();
+
+  //Destructor
+	~Agenda();
+
   //Modificadors
     //Tasques
-    void apuntar_tasca(int i);
-	void tractar_modificacio(const Comanda& c);
-	void modificar_rellotge();
-  	void es_esborrat(int& i,string& etiq);
+    void apuntar_tasca(const Comanda &c);
+	void modificar_tasca(const Comanda &c);
+	void esborrar_tasca(const Comanda &c);
+
+	void tractar_rellotge(const Comanda &c);
+	void modificar_rellotge(const Data &d);
 
   //Consultors
-	void tractar_consulta(const Comanda& c);
-	void tractar_rellotge(const Comanda& c); // en cas de que modifica el rellotge intern crida a modificar_rellotge()
-	void passat();
+	void consulta(const Comanda &c);
+	void consulta_data(Data d1, Data d2);
+	void consulta_etiqueta(vector<string> &e);
+	void consulta_expressio(string s);
+	
+	void consulta_passat();
+	
+	void consulta_rellotge();
 
 };
 #endif
