@@ -1,6 +1,11 @@
-#include "utils.cc" //utils.PRO2
-#include "Agenda.hh"
-#include "./Comanda/Comanda.hh"
+#include <exception>
+#include <iostream>
+#include <string>
+#include <map>
+#include <vector>
+
+#include "Agenda/Agenda.hh"
+#include "Comanda/Comanda.hh"
 
 int main() {
 
@@ -16,17 +21,15 @@ bool be;
 			if(c.es_insercio()) ag.apuntar_tasca(c);
 			
 			else if(c.es_consulta()){
-				if(c.es_passat()) 	ag.tractar_passat();
-				else ag.tractar_consulta(c);
+				if(c.es_passat()) 	ag.consulta_passat();
+				else ag.consulta(c);
 
 			}
-			else if(c.es_modificacaio()) ag.modificar_tasca(c);
+			else if(c.es_modificacio()) ag.modificar_tasca(c);
 			
 			else if(c.es_rellotge())  ag.tractar_rellotge(c);
 
-			else if(c.es_esborrat())  ag.es_esborrat(c);
-			
-
+			else if(c.es_esborrat())  ag.esborrar_tasca(c);
 		}
 	}
 

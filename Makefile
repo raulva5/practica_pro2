@@ -1,7 +1,7 @@
 tot: main agenda tasca comanda data token crea
 
-crea: main.o Agenda/Agenda.o Comanda/Comanda.o
-	g++ -o main.x main.o Agenda/Agenda.o Tasca/Tasca.o Comanda/Comanda.o Data/Data.o Token/Token.o
+crea: main.o Agenda.o Tasca.o Comanda.o Data.o token.o
+	g++ -o main.x main.o Agenda.o Tasca.o Comanda.o Data.o token.o
 
 main: main.cc
 	g++ -c -D_GLIBCXX_DEBUG main.cc
@@ -18,8 +18,8 @@ comanda: Comanda/Comanda.hh Comanda/Comanda.cc
 data: Data/Data.hh Data/Data.cc
 	g++ -c -D_GLIBCXX_DEBUG Data/Data.cc
 
-token: Token/Token.hh Token/Token.cc
-	g++ -c -D_GLIBCXX_DEBUG Token/Token.cc
+token: Token/token.hh Token/token.cc
+	g++ -c -D_GLIBCXX_DEBUG Token/token.cc
 
 
 clean:

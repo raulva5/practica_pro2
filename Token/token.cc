@@ -1,5 +1,4 @@
 // classe Token
-
 #include "token.hh"
 
 void Token::iniciar() {

@@ -4,7 +4,13 @@
 
 #ifndef AGENDA_HH
 #define AGENDA_HH
-#include "../utils.cc"
+
+#include <exception>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+
 #include "../Data/Data.hh"
 #include "../Tasca/Tasca.hh"
 #include "../Comanda/Comanda.hh"
@@ -15,21 +21,21 @@
 
 class Agenda {
 private:
-	Data rellotge; // rellotge intern
-	map<Data,Tasca> m; 	//m conte totes les tasques de l'agenda
-						//Ordenades cronologicament
-	vector<Data> v; //v conte la data de les tasques consultades
+	Data rellotge;
+	map<Data,Tasca> m;
+	vector<Data> menu;
 
+	void consulta_etiqueta(const string &e);
+	void consulta_expressio(const string &s);
 public:
 	
-  //Constructors
+//Constructors
 	Agenda();
 
-  //Destructor
+//Destructor
 	~Agenda();
 
-  //Modificadors
-    //Tasques
+//Modificadors
     void apuntar_tasca(const Comanda &c);
 	void modificar_tasca(const Comanda &c);
 	void esborrar_tasca(const Comanda &c);
@@ -37,15 +43,11 @@ public:
 	void tractar_rellotge(const Comanda &c);
 	void modificar_rellotge(const Data &d);
 
-  //Consultors
+//Consultors
 	void consulta(const Comanda &c);
-	void consulta_data(Data d1, Data d2);
-	void consulta_etiqueta(vector<string> &e);
-	void consulta_expressio(string s);
-	
 	void consulta_passat();
 	
-	void consulta_rellotge();
+	void consulta_rellotge() const;
 
 };
 #endif

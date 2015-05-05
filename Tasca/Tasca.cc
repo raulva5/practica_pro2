@@ -1,2 +1,1 @@
-#include "tasca.hh"
-string titol;
+//#include "Tasca.hh"
