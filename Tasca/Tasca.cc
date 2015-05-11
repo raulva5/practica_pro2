@@ -24,7 +24,8 @@ Tasca::Tasca(string &t)
     
 // Modificadores
 
-void Tasca::modificar_titol(string &t) {
+void Tasca::modificar_titol(string &t) 
+{
 	this->titol = t;
 }
 
@@ -33,7 +34,7 @@ void Tasca::afegir_etiqueta(string &e)
 	
 	if (etiq.empty) etiq.insert(e,true);
 	else {
-		this -> it = etiq.insert(make_pair(e,true));
+		this->it = etiq.insert(make_pair(e,true));
 		/*
 		if (this -> it.second) cout << "Se ha insertado correctamente" << endl; 
 		else { 
