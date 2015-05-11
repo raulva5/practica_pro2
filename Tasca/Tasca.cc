@@ -10,13 +10,22 @@ Tasca::Tasca()
 	// para saber podemos decir que if(it2 != it) si tiene etiquetas
 }
 
+Tasca::Tasca(string &t)
+{
+    	etiq = map<string,bool>;
+	pair<std::map<string,int>::iterator,bool> it;
+	pair<std::map<string,int>::const_iterator,bool> it2 = etiq.begin();
+	// para saber podemos decir que if(it2 != it) si tiene etiquetas
+	 this->titol = t;
+    
+}
 //Destructor
     ~Tasca();
     
 // Modificadores
 
 void Tasca::modificar_titol(const string &t) {
-	this -> titol = t;
+	this->titol = t;
 }
 
 void Tasca::afegir_etiqueta(const string &e) 
@@ -38,7 +47,7 @@ void Tasca::afegir_etiqueta(const string &e)
 void Tasca::esborrar_etiqueta(const string &e, bool &b)  
 {
     
-	this -> it2 = etiq.find(e);
+	this->it2 = etiq.find(e);
 	if (it2 != etiq.end()) b = true;
     else {
 		b = false;
@@ -49,7 +58,7 @@ void Tasca::esborrar_etiqueta(const string &e, bool &b)
 
 string Tasca::consulta_titol() const 
 {
-    return this -> titol;
+    return this->titol;
 }
 //Lector / Escritor
 void Tasca::escribir_etiquetes() const 
