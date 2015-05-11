@@ -4,11 +4,10 @@
 
 #ifndef DATA_HH
 #define DATA_HH
-
 #include <exception>
 #include <iostream>
 #include <string>
-
+using namespace std;
 /** @class Dat
     @brief Representa la data i hora d'una tasca, ens permet llegir i consultar la data i/o l'hora de la tasca
  */
@@ -18,39 +17,46 @@ class Data {
 private:
 	int dia;
 	int mes;
-	int anyo;
-	int minutos;
+	int any;
+	int minut;
 	int hora;
+    bool valid;
 
+    void validar_data();
+    void str_to_data(const string &d);
+    void str_to_hora(const string &h);
 public:
-// Constructores   
+// Constructores
     Data();
-    
-    /** @brief 
-    \PRE: 
-    \POST:  */
-
+    Data(const string &d, const string &h);
 //Destructores
     ~Data();
 
 // Modificadores
-    
-    
-    
-    
-// Consultores
+    /** @brief 
+    \pre: String d format: dd.mm.aa, String h format: hh:mm
+    \post: el p.i. te la data i hora especificades*/
+    void modificar_data_hora(const string &d, const string &h);
+    void modificar_data(const string &d);
+    void modificar_hora(const string &h);
 
-    /*POST: v[0] = data, v[1] = hora*/
-    void escribir_data() const;
+// Consultores
     
-//Lector / Escritor
-    void convert_str_to_data(const string &d);
+    
+//Llegir/Escriure
     
     /** @brief 
-    \pre: 
-    \post: */
-    
-    
+    \pre: p.i. no buit
+    \post: imprimeix per consola la data del p.i.*/
+    void escriure_data();
+
+//Operadors
+    bool operator==(const Data& d);
+    bool operator!=(const Data& d);
+    bool operator<=(const Data& d);
+    bool operator<(const Data& d);
+    bool operator>=(const Data& d);
+    bool operator>(const Data& d);    
 };
 
 #endif
