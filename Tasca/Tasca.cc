@@ -20,15 +20,15 @@ Tasca::Tasca(string &t)
     
 }
 //Destructor
-    ~Tasca();
+    Tasca::~Tasca(){}
     
 // Modificadores
 
-void Tasca::modificar_titol(const string &t) {
+void Tasca::modificar_titol(string &t) {
 	this->titol = t;
 }
 
-void Tasca::afegir_etiqueta(const string &e) 
+void Tasca::afegir_etiqueta(string &e) 
 {
 	
 	if (etiq.empty) etiq.insert(e,true);
@@ -44,7 +44,7 @@ void Tasca::afegir_etiqueta(const string &e)
 	}
 }
  
-void Tasca::esborrar_etiqueta(const string &e, bool &b)  
+void Tasca::esborrar_etiqueta(string &e, bool &b)  
 {
     
 	this->it2 = etiq.find(e);
