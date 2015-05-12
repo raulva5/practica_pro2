@@ -9,7 +9,7 @@
 #include <iostream>
 #include <string>
 #include <map>
-
+using namespace std;
 /** @class Tasca
     @brief Representa el títol de la tasca i la/es etiqueta/es
  */
