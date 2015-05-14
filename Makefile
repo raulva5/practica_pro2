@@ -1,4 +1,4 @@
-tot: main agenda tasca comanda data token crea
+tot:  tasca data comanda token agenda main crea
 
 crea: main.o Agenda.o Tasca.o Comanda.o Data.o token.o
 	g++ -o main.x main.o Agenda.o Tasca.o Comanda.o Data.o token.o
@@ -25,3 +25,8 @@ token: Token/token.hh Token/token.cc
 clean:
 	rm *.o
 	rm *.x
+sample1:
+	./main.x << joc1.sample
+
+sample2:
+	./main.x << joc2.sample

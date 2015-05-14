@@ -24,8 +24,8 @@ git pull
 
 
 TO DO's
-	- ¿Adició classe Tasca?
-	- Pensar mètode per hora i data
+	- Fer jocs de prova
+	- Començar classe agenda
 
 
 Propostes Josefina
@@ -44,3 +44,7 @@ Propostes Josefina
 	//PRES I POST DE MOMENTO SEESSION 8 MAS AVANZADO SESSION 10 
 	//Grafico doxygen necessita graphviz
 	//DOC comentar todos los includes menos los que queremos flexchas
+
+
+
+	¿STATIC?

@@ -14,13 +14,14 @@ Agenda ag;
 bool be;
 
 	while(c.llegir(be)) {
-		
+		be = true;
 		if(!be) cout << "Error de format" << endl;
 		else {
 
-			if(c.es_insercio()) ag.apuntar_tasca(c);
-			
-			else if(c.es_consulta()){
+			if(c.es_insercio()){
+				ag.apuntar_tasca(c, be);
+				if(!be) cout << "No s'ha realitzat" << endl;
+			}else if(c.es_consulta()){
 				if(c.es_passat()) 	ag.consulta_passat();
 				else ag.consulta(c);
 

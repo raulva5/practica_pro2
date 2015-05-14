@@ -4,56 +4,37 @@
 /* Constructores */
 Tasca::Tasca()
 {	
-	etiq = map<string,bool>;
-	pair<std::map<string,int>::iterator,bool> it;
-	pair<std::map<string,int>::const_iterator,bool> it2 = etiq.begin();
-	// para saber podemos decir que if(it2 != it) si tiene etiquetas
+	
 }
 
-Tasca::Tasca(string &t)
+Tasca::Tasca(const string &t)
 {
-    	etiq = map<string,bool>;
-	pair<std::map<string,int>::iterator,bool> it;
-	pair<std::map<string,int>::const_iterator,bool> it2 = etiq.begin();
-	// para saber podemos decir que if(it2 != it) si tiene etiquetas
-	 this->titol = t;
-    
+	this->titol = t;   
 }
 //Destructor
     Tasca::~Tasca(){}
     
 // Modificadores
 
-void Tasca::modificar_titol(string &t) 
+void Tasca::modificar_titol(const string &t) 
 {
 	this->titol = t;
 }
 
-void Tasca::afegir_etiqueta(string &e) 
+void Tasca::afegir_etiqueta(const string &e, bool &b) 
 {
-	
-	if (etiq.empty) etiq.insert(e,true);
-	else {
-		this->it = etiq.insert(make_pair(e,true));
-		/*
-		if (this -> it.second) cout << "Se ha insertado correctamente" << endl; 
-		else { 
-			cout << "No se ha podido insertar, porque hay un elemento con la " << 
-			"misma clave." << endl; 
-		} 
-		*/
-	}
+	pair<map<string,bool>::iterator,bool> ret;
+	ret = this->etiq.insert(pair<string,bool>(e, true));
+	if(ret.second) b = true;
+	else b = false;
 }
  
-void Tasca::esborrar_etiqueta(string &e, bool &b)  
+void Tasca::esborrar_etiqueta(const string &e, bool &b)  
 {
-    
-	this->it2 = etiq.find(e);
-	if (it2 != etiq.end()) b = true;
-    else {
-		b = false;
-		cout << "No s'ha realitzat" << endl; 
-	}
+    int n = this->etiq.erase(e);
+    if(n == 1) b = true;
+    else b = false;
+    //Escriure a Agenda error de no borrat
 }
 // Consultores
 
@@ -61,11 +42,17 @@ string Tasca::consulta_titol() const
 {
     return this->titol;
 }
+
+bool Tasca::te_etiqueta(const string &e){
+	return (this->etiq.find(e) != this->etiq.end());
+}
+
 //Lector / Escritor
 void Tasca::escribir_etiquetes() const 
 {
-	for (auto it = etiq.cbegin(); it != etiq.cend(); ++it) {
-		cout << " #" << (*it).first;
-    }
+	map<string,bool>::const_iterator it;
+
+	for(it = this->etiq.begin(); it != this->etiq.end(); ++it){
+		cout << " #" << it->first;
+	}
 }
-};

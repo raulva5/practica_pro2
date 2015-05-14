@@ -22,7 +22,7 @@ private:
 public:
  // Constructores
     Tasca();
-    Tasca(string &t);
+    Tasca(const string &t);
 
 //Destructor
     ~Tasca();
@@ -31,26 +31,29 @@ public:
     /** @brief 
     \pre: p.e. t no buit
     \post: titol = t*/
-    void modificar_titol(string &t);
+    void modificar_titol(const string &t);
 
     /** @brief 
     \pre: p.e. e no buit
     \post: safegeix un element a map<string,bool> etiq*/
-    void afegir_etiqueta(string &e);
+    void afegir_etiqueta(const string &e, bool &b);
 
     /** @brief 
     \pre: p.e. e no buit
     \post: l'etiqueta amb nom e...
         b = true s'esborra
         b = false si no s'esborra*/
-    void esborrar_etiqueta(string &e, bool &b);
+    void esborrar_etiqueta(const string &e, bool &b);
     
 // Consultores
     /** @brief 
     \pre: p.i. no buit
     \post: retorna el titol del p.i.*/
     string consulta_titol() const;
-    
+    /** @brief 
+    \pre: p.i. no buit
+    \post: retorna true si trobat, false altrament*/
+    bool te_etiqueta(const string &e);
 //Lector / Escritor
     /** @brief 
     \pre: p.i. conte etiquetes

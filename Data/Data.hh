@@ -41,7 +41,8 @@ public:
     void modificar_hora(const string &h);
 
 // Consultores
-    
+    string consultar_data() const;
+    string consultar_hora() const;
     
 //Llegir/Escriure
     
@@ -56,7 +57,7 @@ public:
     bool operator<=(const Data& d);
     bool operator<(const Data& d);
     bool operator>=(const Data& d);
-    bool operator>(const Data& d);    
+    bool operator>(const Data& d);
 };
 
 #endif
