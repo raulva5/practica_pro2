@@ -1,6 +1,6 @@
 // classe Comanda
 
-#include "Comanda.hh"
+#include "comanda.hh"
 
 Comanda::Comanda() {
     i_data = vector<string> (MAX_i_data);

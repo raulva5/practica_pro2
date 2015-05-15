@@ -48,30 +48,18 @@
         validar_data();
     }
 
-    string Data::consultar_data() const{
-        string d;
-        d[1] = dia / 10;
-        d[2] = dia % 10;
-        d[3] = '.';
-        d[4] = mes / 10;
-        d[5] = mes % 10;
-        d[6] = '.';
-        d[7] = any / 10;
-        d[8] = any % 10;
-        return d;
-    }
-    string Data::consultar_hora() const{
-        string h;
-        h[1] = hora / 10;
-        h[2] = hora % 10;
-        h[3] = ':';
-        h[4] = minut / 10;
-        h[5] = minut % 10;
-        return h;
-        
+    void Data::copiar_data(const Data d){
+        this->any = d.any;
+        this->mes = d.mes;
+        this->dia = d.dia;
     }
 
-	void Data::escriure_data(){
+    void Data::copiar_hora(const Data d){
+        this->hora = d.hora;
+        this-> minut = d.minut;
+    }
+
+	void Data::escriure_data() const{
 		if(dia < 10) cout << "0";
 		cout << dia << ".";
 		if(mes < 10) cout << "0";
@@ -91,7 +79,7 @@
         validar_data();
     }
 
-    bool Data::operator== (const Data& d){ 
+    bool Data::operator== (const Data& d) const{ 
     	if(this->any != d.any) return false;
     	if(this->mes != d.mes) return false;
     	if(this->dia != d.dia) return false;
@@ -99,7 +87,7 @@
     	if(this->minut != d.minut) return false;
     	return true;
     }
-    bool Data::operator!= (const Data& d){
+    bool Data::operator!= (const Data& d) const{
     	if(this->any != d.any) return true;
     	if(this->mes != d.mes) return true;
     	if(this->dia != d.dia) return true;
@@ -107,7 +95,7 @@
     	if(this->minut != d.minut) return true;
     	return false;
     }
-    bool Data::operator<= (const Data& d){
+    bool Data::operator<= (const Data& d) const{
     	if(this->any > d.any) return false;
         else if(this->any < d.any) return true;
         if(this->mes > d.mes) return false;
@@ -119,7 +107,7 @@
         if(this->minut > d.minut) return false;
         else return true;
     }
-    bool Data::operator< (const Data& d){
+    bool Data::operator< (const Data& d) const{
     	if(this->any > d.any) return false;
         else if(this->any < d.any) return true;
         if(this->mes > d.mes) return false;
@@ -131,7 +119,7 @@
         if(this->minut >= d.minut) return false;
         else return true;
     }
-    bool Data::operator> (const Data& d){
+    bool Data::operator> (const Data& d) const{
         if(this->any < d.any) return false;
         else if(this->any > d.any) return true;
         if(this->mes < d.mes) return false;
@@ -143,7 +131,7 @@
         if(this->minut <= d.minut) return false;
         else return true;
     }
-    bool Data::operator>= (const Data& d){
+    bool Data::operator>= (const Data& d) const{
         if(this->any < d.any) return false;
         else if(this->any > d.any) return true;
         if(this->mes < d.mes) return false;

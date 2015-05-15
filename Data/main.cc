@@ -34,4 +34,13 @@ int main(){
 	data1 = "10.11.05";
 	d1.modificar_data(data1);
 	d1.escriure_data();
+	cout << endl;
+
+	cout << "COPIES HORA/DATA" << endl;
+	d1.copiar_data(d2);
+	d1.escriure_data();
+	cout << endl;
+	d1.copiar_hora(d2);
+	d1.escriure_data();
+	cout << endl;
 }

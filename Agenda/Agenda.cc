@@ -12,7 +12,7 @@
 
 //Modificadors
     void Agenda::apuntar_tasca(Comanda &c, bool &b){
-    	b = true;
+    	/*b = true;
     	Tasca t;
     	Data d;
     	
@@ -40,9 +40,8 @@
     	if(b){
 			pair<map<Data,Tasca>::iterator,bool> ret;
 			ret = this->m.insert(pair<Data,Tasca>(d, t));
-			if(ret.second) b = true;
-			else b = false;
-		}
+			b = ret.second;
+		}*/
 		
     }
 
@@ -54,11 +53,19 @@
 
 	}
 
-	void Agenda::tractar_rellotge(Comanda &c){
+	void Agenda::modificar_rellotge(const string data, const string hora, bool &be){
+		Data d;
+		
+		if(data != "") d.modificar_data(data);
+		else d.copiar_data(this->rellotge);
+		
+		if(hora != "") d.modificar_hora(hora);
+		else d.copiar_hora(this->rellotge);
 
-	}
-
-	void Agenda::modificar_rellotge(const Data &d){
+		if(d > this->rellotge){
+			this->rellotge = d;
+			be = true;
+		}else be = false;
 
 	}
 
@@ -73,5 +80,6 @@
 	}
 
 	void Agenda::consulta_rellotge() const{
-
+		this->rellotge.escriure_data();
+		cout << endl;
 	}

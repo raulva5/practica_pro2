@@ -55,14 +55,9 @@ public:
 	void esborrar_tasca(Comanda &c);
 
 	 /** @brief 
-    \pre: segons especifiqui p.e. c, la funcio modificara o llegira el rellotge
-    \post: segons c*/
-	void tractar_rellotge(Comanda &c);
-
-	 /** @brief 
     \pre: p.e. c conte la informacio per a modificar una tasca
     \post: es modifica una tasca de map<Data,Tasca>*/
-	void modificar_rellotge(const Data &d);
+	void modificar_rellotge(const string data, const string hora, bool &be);
 
 //Consultors
 	 /** @brief 

@@ -7,6 +7,7 @@
 #include <exception>
 #include <iostream>
 #include <string>
+#include <sstream>
 using namespace std;
 /** @class Dat
     @brief Representa la data i hora d'una tasca, ens permet llegir i consultar la data i/o l'hora de la tasca
@@ -40,24 +41,25 @@ public:
     void modificar_data(const string &d);
     void modificar_hora(const string &h);
 
+    void copiar_data(const Data d);
+    void copiar_hora(const Data d);
 // Consultores
-    string consultar_data() const;
-    string consultar_hora() const;
+    
     
 //Llegir/Escriure
     
     /** @brief 
     \pre: p.i. no buit
     \post: imprimeix per consola la data del p.i.*/
-    void escriure_data();
+    void escriure_data() const;
 
 //Operadors
-    bool operator==(const Data& d);
-    bool operator!=(const Data& d);
-    bool operator<=(const Data& d);
-    bool operator<(const Data& d);
-    bool operator>=(const Data& d);
-    bool operator>(const Data& d);
+    bool operator==(const Data& d) const;
+    bool operator!=(const Data& d) const;
+    bool operator<=(const Data& d) const;
+    bool operator<(const Data& d) const;
+    bool operator>=(const Data& d) const;
+    bool operator>(const Data& d) const;
 };
 
 #endif
