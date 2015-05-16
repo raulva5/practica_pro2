@@ -41,10 +41,6 @@ Propostes Josefina
 	- Quan no trobes una etiqueta ha de llençar un missatge d'error informant..
 	- No vamos a usar el arxivo utils
 
-	//PRES I POST DE MOMENTO SEESSION 8 MAS AVANZADO SESSION 10 
+	//PRES I POST DE MOMENTO SEESSION 8 MAS AVANZADO SESSION 10
 	//Grafico doxygen necessita graphviz
 	//DOC comentar todos los includes menos los que queremos flexchas
-
-
-
-	¿STATIC?

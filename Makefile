@@ -1,15 +1,30 @@
-program.x: program.cc Agenda/Agenda.hh Agenda/Agenda.cc Tasca/Tasca.hh Tasca/Tasca.cc Comanda/Comanda.hh Comanda/Comanda.cc Data/Data.hh Data/Data.cc Token/token.hh Token/token.cc
-	g++ -c -D_GLIBCXX_DEBUG Data/Data.cc
-	g++ -c -D_GLIBCXX_DEBUG Tasca/Tasca.cc
-	g++ -c -D_GLIBCXX_DEBUG Token/token.cc
-	g++ -c -D_GLIBCXX_DEBUG Comanda/Comanda.cc
-	g++ -c -D_GLIBCXX_DEBUG Agenda/Agenda.cc
-	g++ -c -D_GLIBCXX_DEBUG program.cc
-	g++ -o program.x program.o Agenda.o Tasca.o Comanda.o Data.o token.o
+COMPILACION_JUTGE = -D_JUDGE_ -D_GLIBCXX_DEBUG -ansi -O2 -Wall -Wextra -Werror -Wno-uninitialized -Wno-sign-compare -std=c++0x
+
+program.exe: Tasca.o Data.o Agenda.o program.o
+	g++ -o program.exe Tasca.o Data.o token.o Comanda.o Agenda.o program.o
+
+program.x: Tasca.o Data.o token.o comanda.o Agenda.o program.o
+	g++ -o program.x Tasca.o Data.o token.o comanda.o Agenda.o program.o
+
+Tasca.o: Tasca.hh Tasca.cc
+	g++ -c  $(COMPILACION_JUTGE) Tasca.cc
+
+Data.o: Data.hh Data.cc
+	g++ -c  $(COMPILACION_JUTGE) Data.cc
+
+token.o: token.hh token.cc
+	g++ -c  $(COMPILACION_JUTGE) token.cc
+
+comanda.o: comanda.hh comanda.cc
+	g++ -c  $(COMPILACION_JUTGE) comanda.cc
+
+Agenda.o: Agenda.hh Agenda.cc
+	g++ -c  $(COMPILACION_JUTGE) Agenda.cc
+
+program.o: program.cc
+	g++ -c  $(COMPILACION_JUTGE) program.cc
+
 
 clean:
 	rm *.o
 	rm *.x
-
-sample1:
-	./program.x << joc1.sample

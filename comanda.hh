@@ -10,13 +10,13 @@
 #include <string>
 #include "stdlib.h"
 #include <iostream>
-#include "../Token/token.hh"
+#include "token.hh"
 using namespace std;
 
 /** @class Comanda
-    @brief Representa una comanda (lÃ­nia de text d'entrada).
- El mÃ¨tode llegir permet utilitzar consultores sobre la comanda llegida i comprovar
- que no tingui errors sintÃ ctics.
+    @brief Representa una comanda (línia de text d'entrada).
+ El mètode llegir permet utilitzar consultores sobre la comanda llegida i comprovar
+ que no tingui errors sintàctics.
  */
 class Comanda {
 
@@ -91,46 +91,46 @@ public:
     
     // Modificadores
     
-    /** @brief Llegeix una comanda (lÃ­nia de text d'entrada) i actualitza la informaciÃ³ interna perquÃ¨ funcionin bÃ© les consultores
+    /** @brief Llegeix una comanda (línia de text d'entrada) i actualitza la informació interna perquè funcionin bé les consultores
     \pre cert
-    \post si s'ha llegit una comanda sense errors sintÃ ctics, be = cert i s'escriu la comanda; si la comanda tÃ© errors sintÃ ctics, be = fals i s'escriu "Error de format"; retorna cert quan la comanda no Ã©s "sortir" */
+    \post si s'ha llegit una comanda sense errors sintàctics, be = cert i s'escriu la comanda; si la comanda té errors sintàctics, be = fals i s'escriu "Error de format"; retorna cert quan la comanda no és "sortir" */
     bool llegir(bool& be);
     
     // Consultores
     
-    /** @brief Comprova si la comanda Ã©s una inserciÃ³ ("+" Ã©s el primer string)
+    /** @brief Comprova si la comanda és una inserció ("+" és el primer string)
     \pre: cert
-    \post: cert si Ã©s una inserciÃ³ */
+    \post: cert si és una inserció */
     bool es_insercio();
     
-    /** @brief Comprova si la comanda Ã©s una consulta ("?", "passat?" o "rellotge?" Ã©s el primer string)
+    /** @brief Comprova si la comanda és una consulta ("?", "passat?" o "rellotge?" és el primer string)
     \pre cert
-    \post cert si Ã©s una consulta */
+    \post cert si és una consulta */
     bool es_consulta();
     
-    /** @brief Comprova si la comanda Ã©s una consulta del passat ("passat?" Ã©s el primer string)
+    /** @brief Comprova si la comanda és una consulta del passat ("passat?" és el primer string)
     \pre cert
-    \post cert si Ã©s una consulta sobre el passat */
+    \post cert si és una consulta sobre el passat */
     bool es_passat();
     
-    /** @brief Comprova si la comanda Ã©s una modificaciÃ³ (el primer string Ã©s un enter, perÃ² el segon no comenÃ§a per "-")
+    /** @brief Comprova si la comanda és una modificació (el primer string és un enter, però el segon no comença per "-")
     \pre cert
-    \post cert si Ã©s una modificaciÃ³ */
+    \post cert si és una modificació */
     bool es_modificacio();
     
-    /** @brief Comprova si la comanda Ã©s sobre el rellotge (el primer string Ã©s "rellotge" o "rellotge?")
+    /** @brief Comprova si la comanda és sobre el rellotge (el primer string és "rellotge" o "rellotge?")
     \pre cert
-    \post cert si la comanda Ã©s una consulta sobre el rellotge o una modificaciÃ³ del 
+    \post cert si la comanda és una consulta sobre el rellotge o una modificació del 
      temps del rellotge */
     bool es_rellotge();
     
-    /** @brief Comprova si la comanda Ã©s d'esborrat (comenÃ§a per "-k" o per "k -x", on k Ã©s un enter)
+    /** @brief Comprova si la comanda és d'esborrat (comença per "-k" o per "k -x", on k és un enter)
     \pre cert
-    \post cert si Ã©s un esborrat */
+    \post cert si és un esborrat */
     bool es_esborrat();
     
     /** @brief Consulta el tipus d'esborrat
-    \pre la comanda Ã©s d'esborrat
+    \pre la comanda és d'esborrat
     \post retorna el tipus d'esborrat: "etiquetes" (si cal esborrar totes les etiquetes), "etiqueta" (si cal esborrar-ne una) o "tasca" (si cal esborrar la tasca) */
     string tipus_esborrat();
     
@@ -141,27 +141,27 @@ public:
     
     /** @brief Consulta una data individual de la comanda
     \pre 1 <= i <= nombre_dates()
-    \post retorna la data i-Ã¨sima de la comanda */
+    \post retorna la data i-èsima de la comanda */
     string data(int i);
     
-    /** @brief Comprova si la comanda contÃ© hora
+    /** @brief Comprova si la comanda conté hora
     \pre cert
-    \post cert si la comanda contÃ© hora */
+    \post cert si la comanda conté hora */
     bool te_hora();
     
     /** @brief Consulta l'hora de la comanda
-    \pre la comanda contÃ© hora
+    \pre la comanda conté hora
     \post retorna l'hora continguda en la comanda */
     string hora();
     
-    /** @brief Comprova si la comanda contÃ© un tÃ­tol (una seqÃ¼Ã¨ncia de paraules, Ã©s a dir, strings que comencen per una lletra i no contenen ni "." ni "," ni ":" ni "#")
+    /** @brief Comprova si la comanda conté un títol (una seqüència de paraules, és a dir, strings que comencen per una lletra i no contenen ni "." ni "," ni ":" ni "#")
     \pre cert
-    \post retorna cert si la comanda contÃ© un tÃ­tol */
+    \post retorna cert si la comanda conté un títol */
     bool te_titol();
     
-    /** @brief Consulta el tÃ­tol de la comanda
-    \pre Ã©s una inserciÃ³ o Ã©s una modificaciÃ³ amb tÃ­tol
-    \post retorna el tÃ­tol contingut en la comanda */
+    /** @brief Consulta el títol de la comanda
+    \pre és una inserció o és una modificació amb títol
+    \post retorna el títol contingut en la comanda */
     string titol();
     
     /** @brief Consulta el nombre d'etiquetes de la comanda (strings que comencen per # seguit d'una paraula)
@@ -171,22 +171,22 @@ public:
     
     /** @brief Consulta una etiqueta de la comanda
     \pre 1 <= i <= nombre_etiquetes()
-    \post retorna l'etiqueta i-Ã¨sima de la comanda */
+    \post retorna l'etiqueta i-èsima de la comanda */
     string etiqueta(int i);
     
-    /** @brief Consulta la presÃ¨ncia d'una expressiÃ³ booleana d'etiquetes en la comanda, Ã©s a dir, una expressiÃ³ ben parentitzada, on els operadors sÃ³n "," (disjunciÃ³ binÃ ria) i "." (conjunciÃ³ binÃ ria) i els operands sÃ³n etiquetes
+    /** @brief Consulta la presència d'una expressió booleana d'etiquetes en la comanda, és a dir, una expressió ben parentitzada, on els operadors són "," (disjunció binària) i "." (conjunció binària) i els operands són etiquetes
     \pre cert
-    \post cert si la comanda contÃ© una expressiÃ³ booleana d'etiquetes */
+    \post cert si la comanda conté una expressió booleana d'etiquetes */
     bool te_expressio();
 
-    /** @brief Consulta una expressiÃ³ d'etiquetes
-    \pre la comanda contÃ© una expressiÃ³ d'etiquetes
+    /** @brief Consulta una expressió d'etiquetes
+    \pre la comanda conté una expressió d'etiquetes
     \post retorna l'expressio booleana d'etiquetes continguda en la comanda */
     string expressio();
     
-    /** @brief Consulta el nÃºmero de tasca que hi ha a la comanda
-    \pre la comanda Ã©s un esborrat o una modificaciÃ³
-    \post retorna el nÃºmero de tasca de l'operaciÃ³ continguda en la comanda */
+    /** @brief Consulta el número de tasca que hi ha a la comanda
+    \pre la comanda és un esborrat o una modificació
+    \post retorna el número de tasca de l'operació continguda en la comanda */
     int tasca();
 };
 

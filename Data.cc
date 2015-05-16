@@ -63,7 +63,7 @@
 		if(dia < 10) cout << "0";
 		cout << dia << ".";
 		if(mes < 10) cout << "0";
-		cout << mes << ".20";
+		cout << mes << ".";
 		if(any < 10) cout << "0";
 		cout << any << " ";
 

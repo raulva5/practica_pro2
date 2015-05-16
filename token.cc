@@ -1,4 +1,5 @@
 // classe Token
+
 #include "token.hh"
 
 void Token::iniciar() {
@@ -171,3 +172,4 @@ bool Token::es_esborrat() {return esborrat;}
 string Token::tipus_esborrat() {return t_esborrat;}
 
 bool Token::es_consulta() {return consulta;}
+
