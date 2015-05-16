@@ -70,18 +70,20 @@ bool Tasca::expressio(const string &expr, int &i){
 	
 	char op = expr[i];
 	++i;
-	
+
+	//LAZY EVALUATION
 	if(op == '.' and not e1){
-		while(expr[i] != '.' and expr[i] != ',' and expr[i] != ')') ++i;
+		while(expr[i] != ')') ++i;
 		++i;
 		return false;
 	}
 	if(op == ',' and e1){
-		while(expr[i] != '.' and expr[i] != ',' and expr[i] != ')') ++i;
+		while(expr[i] != ')') ++i;
 		++i;
 		return true;
 	}
-	
+	//FIN LAZY EVALUATION
+
 	if(expr[i] == '(') e2 = expressio(expr, i);
 	else{
 		aux = llegir_paraula(expr, i);
