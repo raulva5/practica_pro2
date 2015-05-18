@@ -77,7 +77,7 @@
 		}
 	}
 
-	void Agenda::esborrar_tasca(const int &n, const string &t, bool &be){
+	void Agenda::tractar_esborrat(const int &n, const string &t, bool &be){
 		if(n <= menu.size()){
 			if(t == "tasca"){
 				m.erase(menu[n-1]);

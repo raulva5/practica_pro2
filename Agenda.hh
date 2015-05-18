@@ -23,7 +23,7 @@ class Agenda {
 private:
 	Data rellotge;
 	map<Data,Tasca> m;
-	vector<map<Data, Tasca>::iterator> menu;
+	vector<pair<bool, map<Data,Tasca>::iterator>> menu;
 
 	void consulta_etiqueta(const string &e);
 	void consulta_expressio(const string &s);
@@ -52,13 +52,13 @@ public:
 	void modificar_tasca(const int &n, const string &t, const string &data, 
                         const string &hora, const string &etiqueta, bool &be);
 
-	 /** @brief Esborra la tasca referenciada per n al menu
+	 /** @brief Tracta l'esborrat relacionat amb una tasca
     \pre: 0 <= n < menu.size(), t = "tasca" o t = "etiquetes" o bé t conte una etiqueta 
     \post: n fa referencia a la tasca si:
         t = "tasca" s'esborra la tasca
         t = "etiquetes" esborra totes les etiquetes
         altrament s'esborra la etiqueta t */
-	void esborrar_tasca(const int &n, const string &t, bool &be);
+	void tractar_esborrat(const int &n, const string &t, bool &be);
 
 	 /** @brief Avanca el rellotge d'hora
     \pre: si data o hora, es buit no es modifica

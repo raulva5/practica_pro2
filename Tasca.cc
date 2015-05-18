@@ -61,16 +61,15 @@ bool Tasca::expressio(const string &expr, int &i){
 	bool e1, e2;
 	string aux;
 	++i;
-	
+	//Avalua E esquerre	
 	if(expr[i] == '(') e1 = expressio(expr, i);
 	else{
 		aux = llegir_paraula(expr, i);
 		e1 = te_etiqueta(aux);
 	}
-	
 	char op = expr[i];
 	++i;
-
+	
 	//LAZY EVALUATION
 	if(op == '.' and not e1){
 		while(expr[i] != ')') ++i;
@@ -82,17 +81,19 @@ bool Tasca::expressio(const string &expr, int &i){
 		++i;
 		return true;
 	}
-	//FIN LAZY EVALUATION
+	//FI LAZY EVALUATION
 
+	//Avalua E dret
 	if(expr[i] == '(') e2 = expressio(expr, i);
 	else{
 		aux = llegir_paraula(expr, i);
 		e2 = te_etiqueta(aux);
 	}
+
+	//Retorna (E op E)
 	++i;
 	if(op == '.') return e1 * e2;
 	else return e1 + e2;
-
 }
 
 //Lector / Escritor

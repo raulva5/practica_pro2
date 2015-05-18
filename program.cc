@@ -101,7 +101,7 @@ bool r; //bool per respostes
 				int n = c.tasca();
 				string tipus = c.tipus_esborrat();
 				if(tipus == "etiqueta") tipus = c.etiqueta(1);
-				ag.esborrar_tasca(n, tipus, r);
+				ag.tractar_esborrat(n, tipus, r);
 			}
 		}
 		if(not r) cout << "No s'ha realitzat" << endl;
