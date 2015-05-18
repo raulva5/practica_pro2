@@ -6,7 +6,34 @@
 
 #include "Agenda.hh"
 #include "comanda.hh"
-
+ 
+void preparar_apuntar_tasca(Comanda& c, Agenda &ag, bool &be) {
+	
+	string titol;
+	titol.clear();
+	if (c.te_titol()) {
+		titol = c.titol();
+	}
+	int n = c.nombre_etiquetes();
+	vector<string> ve;
+	ve.clear();
+	if (n != 0) {
+	    for (int i = 0; i < n; ++i) {
+	    	ve.push_back(c.etiqueta(i+1));
+	    }
+	}
+	string data;
+	data.clear();
+	if (c.nombre_dates() != 0) {
+		data = c.data(1);
+	}
+	string hora;
+	hora.clear();
+	if (c.te_hora()) {
+		hora = c.hora();
+	}
+	ag.apuntar_tasca(titol,n,ve,data,hora,be);
+}
 
 void preparar_consulta(Comanda& c, Agenda &ag) {
 
@@ -33,7 +60,7 @@ void preparar_consulta(Comanda& c, Agenda &ag) {
 	ag.consulta(d1,d2,etiqueta,expr);
 }
 
-void preparar_modificacio(Comanda& c, Agenda &ag, bool &be) {
+void preparar_modificacio(Comanda& c, Agenda &ag, bool &r) {
 	
 	string data;
 	data.clear();
@@ -58,7 +85,7 @@ void preparar_modificacio(Comanda& c, Agenda &ag, bool &be) {
 	if(c.nombre_etiquetes() != 0){
 		etiqueta = c.etiqueta(1);
 	}
-	ag.modificar_tasca(c.tasca(), titol, data, hora, etiqueta, be);
+	ag.modificar_tasca(c.tasca(), titol, data, hora, etiqueta, r);
 }
 
 
@@ -67,17 +94,13 @@ int main() {
 
 Comanda c;
 Agenda ag;
-bool be; 
 bool r; //bool per respostes
 
-	while(c.llegir(be)) {
-		r = true;
-		be = true;
-		if(not be) cout << "Error de format" << endl;
-		else {
-
+	while(c.llegir(r)) {
+		if(r){
+			r = true;
 			if(c.es_insercio()) {
-				ag.apuntar_tasca(c, be);
+				preparar_apuntar_tasca(c, ag, r);
 			}
 			else if(c.es_consulta()) {
 				if(c.es_rellotge()) ag.consulta_rellotge();
@@ -103,8 +126,9 @@ bool r; //bool per respostes
 				if(tipus == "etiqueta") tipus = c.etiqueta(1);
 				ag.tractar_esborrat(n, tipus, r);
 			}
+			if(not r) cout << "No s'ha realitzat" << endl;
 		}
-		if(not r) cout << "No s'ha realitzat" << endl;
+		
 	}
 }
 

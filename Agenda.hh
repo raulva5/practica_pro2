@@ -13,7 +13,6 @@
 
 #include "Data.hh"
 #include "Tasca.hh"
-#include "comanda.hh"
 using namespace std;
 /** @class Agenda
     @brief Representa una agenda.
@@ -24,7 +23,6 @@ private:
 	Data rellotge;
 	map<Data,Tasca> m;
 	vector<pair<bool, map<Data,Tasca>::iterator>> menu;
-
 	void consulta_etiqueta(const string &e);
 	void consulta_expressio(const string &s);
     void imprimir_menu() const;
@@ -43,7 +41,7 @@ public:
     \pre: 
     \post: b = true, map<Data,Tasca> m conte una tasca nova
     	   b = false, la tasca no s'ha afegit */
-    void apuntar_tasca(Comanda &c, bool &b);
+    void apuntar_tasca(const string &titol, int &n, const vector<string> &vs, const string &data, const string &hora, bool &be);
     
     /** @brief Modifica text, data o hora de la tasca 'n' del menu
     \pre: 0 <= n < menu.size(), no es modificaran els pertinents atributs de tasca per els p.e. buits
