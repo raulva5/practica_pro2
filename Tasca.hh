@@ -65,8 +65,9 @@ public:
     bool te_etiqueta(const string &e) const;
 
     /** @brief Comprova si compleix l'expressio
-    \pre: expressio no buit
-    \post: retorna true si compleix l'expressio, false altrament */
+    \pre:   expressio[i] = "(" que indica l'inici d'una expressio / subexpressio
+    \post:  expressio[i] = ('.',',') o bé final d'expressio / subexpressio
+            retorna true si compleix l'expressio / subexpressio, false altrament*/
     bool expressio(const string &expressio, int &i);
     
 //Lector / Escritor

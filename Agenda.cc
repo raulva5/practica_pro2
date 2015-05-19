@@ -4,47 +4,36 @@
 
 //Constructors
 	Agenda::Agenda(){
-		this->rellotge.modificar_data_hora("20.04.15", "00:00");
+		rellotge.modificar_data_hora("20.04.15", "00:00");
 	}
 
 //Destructor
 	Agenda::~Agenda(){}
 
 //Modificadors
-	void Agenda::apuntar_tasca(const string &titol, int &n, const vector<string> &vs, const string &data, const string &hora, bool &be) {
+	void Agenda::apuntar_tasca(const string &data, const string &hora, const Tasca &t, bool &be) {
    	be = true;
-   	Tasca t;
-    	Data d;
-    	if (not titol.empty()) {
-    		t.modificar_titol(titol);
-    	}else be = false;
-    	
-    	if (not vs.empty()) {
-    		for (int i = 0; i < n; ++i) {
-    			t.afegir_etiqueta(vs[i]);
-    		}
-    	} 
-    	
-    	if (not data.empty()) {
-    		d.modificar_data(data);
-    	} else d.copiar_data(this->rellotge);
-    	if (not hora.empty()) { 
-    		d.modificar_hora(hora);
-    	} else be = false;
-        if (be) {
+   		Data d;
+   		if(not data.empty()) d.modificar_data(data);
+   		else d.copiar_data(rellotge);
+
+   		d.modificar_hora(hora);
+
+        if (rellotge <= d) {
         	pair<map<Data,Tasca>::iterator,bool> ret;
-		ret = this->m.insert(pair<Data,Tasca>(d, t));
-		be = ret.second;
-        }
+			ret = m.insert(pair<Data,Tasca>(d, t));
+			be = ret.second;
+        }else be = false;
    	}
 
-	void Agenda::modificar_tasca(const int &n, const string &t, const string &data, 
-                        const string &hora, const string &etiqueta, bool &be){
+	void Agenda::modificar_tasca(const int &n, const string &titol, const string &data, const string &hora, bool &be){
 		if(1 <= n and n <= menu.size() and menu[n-1].first){
 			be = true;
-			bool data_modificada = false;
 			Data daux;
+			bool data_modificada = false;
+
 			if(not data.empty() or not hora.empty()){
+				
 				if(not data.empty()){
 					daux.modificar_data(data);
 				}else daux.copiar_data(menu[n-1].second->first);
@@ -55,21 +44,29 @@
 				
 				data_modificada = true;
 			}
-			if(not t.empty()){
-				menu[n-1].second->second.modificar_titol(t);
+
+			if(not titol.empty()){
+				menu[n-1].second->second.modificar_titol(titol);
 			}
-			if(not etiqueta.empty()){
-				menu[n-1].second->second.afegir_etiqueta(etiqueta);
-			}
-			if(data_modificada and this->rellotge <= daux){
-				Tasca taux = menu[n-1].second->second;
-				m.erase(menu[n-1].second);
-				pair<map<Data,Tasca>::iterator,bool> ret;
-				ret = this->m.insert(pair<Data,Tasca>(daux, taux));
-				be = ret.second;
-				if(ret.second) menu[n-1].second = ret.first;
+
+			if(data_modificada and daux != menu[n-1].second->first){
+				if(rellotge < daux){
+					Tasca taux = menu[n-1].second->second;
+					pair<map<Data,Tasca>::iterator,bool> ret;
+					ret = m.insert(pair<Data,Tasca>(daux, taux));
+					be = ret.second;
+					if(ret.second){
+						m.erase(menu[n-1].second);
+						menu[n-1].second = ret.first;
+					}
+				}
 			}
 		}else be = false;
+	}
+	void Agenda::afegir_etiqueta_tasca(const int &n, const string &etiqueta){
+		if(1 <= n and n <= menu.size() and menu[n-1].first){
+			menu[n-1].second->second.afegir_etiqueta(etiqueta);
+		}
 	}
 
 	void Agenda::tractar_esborrat(const int &n, const string &t, bool &be){
@@ -88,16 +85,21 @@
 
 	void Agenda::avancar_rellotge(const string data, const string hora, bool &be){
 		Data d;
-		
 		if(not data.empty()) d.modificar_data(data);
-		else d.copiar_data(this->rellotge);
+		else d.copiar_data(rellotge);
 		
 		if(not hora.empty()) d.modificar_hora(hora);
-		else d.copiar_hora(this->rellotge);
+		else d.copiar_hora(rellotge);
 
-		if(d >= this->rellotge){
-			this->rellotge = d;
+		if(d >= rellotge){
+			rellotge = d;
 			be = true;
+			
+			int n = menu.size();
+			for(int i = 0; i < n; ++i){
+				if(menu[i].first and menu[i].second->first < rellotge) menu[i].first = false;
+			}
+
 		}else be = false;
 
 	}
@@ -106,41 +108,37 @@
 
 	void Agenda::consulta(const string &d1, const string &d2, 
 						const string &etiqueta, const string expressio){
-		bool basic = false;
+		bool futures = false;
 		menu.clear();
 		Data auxd1, auxd2;
 		map<Data,Tasca>::iterator itlow,itup;
-		if(not d1.empty() and not d2.empty()){ // ? DD.MM.YY DD.MM.YY
-			
+		if(not d1.empty() and not d2.empty()){//Rang
 			auxd1.modificar_data(d1);
+			if(auxd1 < rellotge) auxd1 = rellotge;
 			itlow = m.lower_bound(auxd1);
 			
 			auxd2.modificar_data(d2);
 			auxd2.modificar_hora("23:59");
 			itup = m.upper_bound(auxd2);	
 
-		}else if(not d1.empty()){ //? DD.MM.YY
+		}else if(not d1.empty()){//Dia concret
 			auxd1.modificar_data(d1);
-			auxd1.copiar_hora(this->rellotge);
+			if(auxd1 < rellotge) auxd1 = rellotge;
 			itlow = m.lower_bound(auxd1);
 
 			auxd2.modificar_data(d1);
 			auxd2.modificar_hora("23:59");
 			itup = m.upper_bound(auxd2);	
-		}else{ // ?
-			auxd1.copiar_data(this->rellotge);
-			auxd1.copiar_hora(this->rellotge);
-			itlow = m.lower_bound(auxd1);
-
+		}else{//Futures
+			itlow = m.lower_bound(rellotge);
 			itup = m.end();
-			basic = true;
+			futures = true;
 		}
-		if(basic or (auxd1 < auxd2 and this->rellotge <= auxd1)){
+		if(futures or auxd1 <= auxd2){
 			bool b;
 			while(itlow != itup){
 				b = true;
-				
-				if(not etiqueta.empty())	b = itlow->second.te_etiqueta(etiqueta);
+				if(not etiqueta.empty()) b = itlow->second.te_etiqueta(etiqueta);
 				else if(not expressio.empty()){
 					int auxi = 0;
 					b = itlow->second.expressio(expressio, auxi);
@@ -161,7 +159,7 @@
 	void Agenda::consulta_passat(){
 
 		map<Data,Tasca>::iterator it,itup;
-		itup = m.lower_bound(this->rellotge);
+		itup = m.lower_bound(rellotge);
 
 		menu.clear();
 		for(it = m.begin(); it != itup; ++it){
@@ -174,7 +172,7 @@
 	}
 
 	void Agenda::consulta_rellotge() const{
-		this->rellotge.escriure_data();
+		rellotge.escriure_data();
 		cout << endl;
 	}
 

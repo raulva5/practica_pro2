@@ -22,7 +22,7 @@ class Agenda {
 private:
 	Data rellotge;
 	map<Data,Tasca> m;
-	vector<pair<bool, map<Data,Tasca>::iterator>> menu;
+	vector<pair<bool, map<Data,Tasca>::iterator> > menu;
 	void consulta_etiqueta(const string &e);
 	void consulta_expressio(const string &s);
     void imprimir_menu() const;
@@ -41,15 +41,14 @@ public:
     \pre: 
     \post: b = true, map<Data,Tasca> m conte una tasca nova
     	   b = false, la tasca no s'ha afegit */
-    void apuntar_tasca(const string &titol, int &n, const vector<string> &vs, const string &data, const string &hora, bool &be);
+    void apuntar_tasca(const string &data, const string &hora, const Tasca &t, bool &be);
     
     /** @brief Modifica text, data o hora de la tasca 'n' del menu
     \pre: 0 <= n < menu.size(), no es modificaran els pertinents atributs de tasca per els p.e. buits
     \post: b = true, s'ha modificat els pertinents atributs de tasca per els p.e. no buits de la tasca 'n' del menu
            b = false, no s'ha modificat cap tasca */
-	void modificar_tasca(const int &n, const string &t, const string &data, 
-                        const string &hora, const string &etiqueta, bool &be);
-
+	void modificar_tasca(const int &n, const string &titol, const string &data, const string &hora, bool &be);
+    void afegir_etiqueta_tasca(const int &n, const string &etiqueta);
 	 /** @brief Tracta l'esborrat relacionat amb una tasca
     \pre: 0 <= n < menu.size(), t = "tasca" o t = "etiquetes" o bé t conte una etiqueta 
     \post: n fa referencia a la tasca si:

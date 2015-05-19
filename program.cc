@@ -6,33 +6,24 @@
 
 #include "Agenda.hh"
 #include "comanda.hh"
+#include "Tasca.hh"
  
 void preparar_apuntar_tasca(Comanda& c, Agenda &ag, bool &be) {
-	
-	string titol;
-	titol.clear();
-	if (c.te_titol()) {
-		titol = c.titol();
-	}
+	Tasca t(c.titol());	
 	int n = c.nombre_etiquetes();
-	vector<string> ve;
-	ve.clear();
-	if (n != 0) {
-	    for (int i = 0; i < n; ++i) {
-	    	ve.push_back(c.etiqueta(i+1));
-	    }
+	for(int i = 0; i < n; ++i){
+		t.afegir_etiqueta(c.etiqueta(i+1));
 	}
+
 	string data;
 	data.clear();
-	if (c.nombre_dates() != 0) {
-		data = c.data(1);
-	}
+	if(c.nombre_dates() != 0) data = c.data(1);
+	
 	string hora;
 	hora.clear();
-	if (c.te_hora()) {
-		hora = c.hora();
-	}
-	ag.apuntar_tasca(titol,n,ve,data,hora,be);
+	if(c.te_hora()) hora = c.hora();
+
+	ag.apuntar_tasca(data, hora, t, be);
 }
 
 void preparar_consulta(Comanda& c, Agenda &ag) {
@@ -47,21 +38,29 @@ void preparar_consulta(Comanda& c, Agenda &ag) {
 	
 	string d1,d2;
 	d1.clear();
-	d2.clear();
-	int num_dates = c.nombre_dates();
-	
-	if (num_dates == 2){
+	d2.clear();	
+	if (c.nombre_dates() == 2){
 		d1 = c.data(1);
 		d2 = c.data(2);
 	}
-	else if(num_dates == 1){
-		d1 = c.data(1);
-	}
+	else if(c.nombre_dates() == 1) d1 = c.data(1);
+
 	ag.consulta(d1,d2,etiqueta,expr);
 }
 
 void preparar_modificacio(Comanda& c, Agenda &ag, bool &r) {
 	
+	int n_tasca = c.tasca();
+	
+	string titol;
+	titol.clear();
+	if(c.te_titol()){
+		titol = c.titol();
+	}
+
+	int n = c.nombre_etiquetes();
+	for(int i = 0; i < n; ++i) ag.afegir_etiqueta_tasca(n_tasca, c.etiqueta(i+1));
+
 	string data;
 	data.clear();
 	if(c.nombre_dates() != 0){
@@ -72,20 +71,9 @@ void preparar_modificacio(Comanda& c, Agenda &ag, bool &r) {
 	hora.clear();
 	if(c.te_hora()){
 		hora = c.hora();
-	}
-
-	string titol;
-	titol.clear();
-	if(c.te_titol()){
-		titol = c.titol();
-	}
-
-	string etiqueta;
-	etiqueta.clear();
-	if(c.nombre_etiquetes() != 0){
-		etiqueta = c.etiqueta(1);
-	}
-	ag.modificar_tasca(c.tasca(), titol, data, hora, etiqueta, r);
+	}	
+	
+	ag.modificar_tasca(n_tasca, titol, data, hora, r);
 }
 
 
