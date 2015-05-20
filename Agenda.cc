@@ -49,7 +49,7 @@
 				menu[n-1].second->second.modificar_titol(titol);
 			}
 
-			if(data_modificada and daux != menu[n-1].second->first){
+			if(data_modificada){
 				if(rellotge < daux){
 					Tasca taux = menu[n-1].second->second;
 					pair<map<Data,Tasca>::iterator,bool> ret;
@@ -59,7 +59,7 @@
 						m.erase(menu[n-1].second);
 						menu[n-1].second = ret.first;
 					}
-				}
+				}be = false;
 			}
 		}else be = false;
 	}
