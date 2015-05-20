@@ -54,7 +54,7 @@ string Tasca::llegir_paraula(const string &s, int &i){
 	return s.substr(start,(i - start));
 }
 
-bool Tasca::expressio(const string &expr, int &i){
+bool Tasca::expressio(const string &expr, int &i){ //Expr = ( E op E );
 	bool e1 = true;
 	bool e2 = true;
 	string aux;
@@ -65,16 +65,13 @@ bool Tasca::expressio(const string &expr, int &i){
 		aux = llegir_paraula(expr, i);
 		e1 = te_etiqueta(aux);
 	}
-	
 	char op = expr[i];
 	++i;
-	
 	//Mira si es pot fer lazy_evaluation
 	bool lazy_evaluation = false;
 	if((op == '.' and not e1) or (op == ',' and e1)){
 		lazy_evaluation = true;
 	}
-
 	//Avalua E dret
 	if(expr[i] == '(' and not lazy_evaluation) e2 = expressio(expr, i);
 	else{
@@ -90,8 +87,7 @@ bool Tasca::expressio(const string &expr, int &i){
 			++i;
 		}
 	}else ++i;
-	
-	//Retorna (E op E)
+	//Retorna ( E op E )
 	if(op == '.') return e1 and e2;
 	else return e1 or e2;
 }
