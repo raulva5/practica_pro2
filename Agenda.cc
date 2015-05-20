@@ -138,6 +138,7 @@
 			bool b;
 			while(itlow != itup){
 				b = true;
+				
 				if(not etiqueta.empty()) b = itlow->second.te_etiqueta(etiqueta);
 				else if(not expressio.empty()){
 					int auxi = 0;

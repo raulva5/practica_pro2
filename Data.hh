@@ -23,8 +23,6 @@ private:
 	int hora;
     bool valid;
 
-    
-    void validar_data();
     void str_to_data(const string &d);
     void str_to_hora(const string &h);
 public:
