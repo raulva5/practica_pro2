@@ -38,8 +38,9 @@ public:
 
     /** @brief Afegeix una etiqueta
     \pre: e no buit
-    \post: s'afegeix una etiqueta a etiq */
-    void afegir_etiqueta(const string &e);
+    \post: be = true, s'ha afegit una etiqueta a etiq
+            be = false altrament */
+    void afegir_etiqueta(const string &e, bool &be);
 
     /** @brief S'esborra l'etiqueta e
     \pre: e no buit
@@ -65,9 +66,14 @@ public:
     bool te_etiqueta(const string &e) const;
 
     /** @brief Comprova si compleix l'expressio
-    \pre:   expressio[i] = "(" que indica l'inici d'una expressio / subexpressio
-    \post:  expressio[i] = ('.',',') o bé final d'expressio / subexpressio
-            retorna true si compleix l'expressio / subexpressio, false altrament*/
+    \pre:   expressio[i] = '(' inici de una expressio i tambe es compleix
+                            1r cas - i = 0, està situat a l'inici de l'expressio
+                            2n cas - expressio[i-1] tambe es "("
+                            3r cas - expressio[i-1] = '.' o ','
+    \post:  1r cas expressio[i] està situat al final de l'expressio i ja ha acabat.
+                retorna true si el total de l'expressio es compleix, false altrament
+            2n cas expressio[i] = '.' o ',' retorna true si es compleix la subexpressio, false altrament
+            3r cas expressio[i] = ')' retorna true si es compleix la subexpressio, false altrament */ 
     bool expressio(const string &expressio, int &i);
     
 //Lector / Escritor

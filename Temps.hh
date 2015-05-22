@@ -1,5 +1,5 @@
-/** @file Data.hh
-    @brief Classe Data
+/** @file Temps.hh
+    @brief Classe Temps
  */
 
 #ifndef DATA_HH
@@ -8,12 +8,13 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+
 using namespace std;
 /** @class Dat
     @brief Representa la data i hora d'una tasca, ens permet llegir i consultar la data i/o l'hora de la tasca
  */
 
-class Data {
+class Temps {
 
 private:
 	int dia;
@@ -28,13 +29,13 @@ private:
 public:
     // Constructores
     /** @brief Constructora per defecte*/
-    Data();
+    Temps();
     /** @brief Constructora amb hora i data*/
-    Data(const string &d, const string &h);
+    Temps(const string &d, const string &h);
     
     //Destructores
     /** @brief Destructora per defecte*/
-    ~Data();
+    ~Temps();
 
     // Modificadores
     
@@ -56,12 +57,12 @@ public:
     /** @brief Copia la data del p.e.
     \pre: d no buit
     \post: S'ha copiat any, mes, dia de d al p.i. */
-    void copiar_data(const Data d);
+    void copiar_data(const Temps d);
 
     /** @brief Copia la hora del p.e.
     \pre: d no buit
     \post: S'ha copiat hora i minut de d al p.i. */
-    void copiar_hora(const Data d);
+    void copiar_hora(const Temps d);
 
     //Llegir/Escriure
     
@@ -71,12 +72,12 @@ public:
     void escriure_data() const;
 
     //Operadors
-    bool operator==(const Data& d) const;
-    bool operator!=(const Data& d) const;
-    bool operator<=(const Data& d) const;
-    bool operator<(const Data& d) const;
-    bool operator>=(const Data& d) const;
-    bool operator>(const Data& d) const;
+    bool operator==(const Temps& d) const;
+    bool operator!=(const Temps& d) const;
+    bool operator<=(const Temps& d) const;
+    bool operator<(const Temps& d) const;
+    bool operator>=(const Temps& d) const;
+    bool operator>(const Temps& d) const;
 };
 
 #endif

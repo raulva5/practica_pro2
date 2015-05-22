@@ -11,7 +11,7 @@
 #include <vector>
 #include <map>
 
-#include "Data.hh"
+#include "Temps.hh"
 #include "Tasca.hh"
 using namespace std;
 /** @class Agenda
@@ -20,9 +20,9 @@ using namespace std;
 
 class Agenda {
 private:
-	Data rellotge;
-	map<Data,Tasca> m;
-	vector<pair<bool, map<Data,Tasca>::iterator> > menu;
+	Temps rellotge;
+	map<Temps,Tasca> m;
+	vector<pair<bool, map<Temps,Tasca>::iterator> > menu;
 	void consulta_etiqueta(const string &e);
 	void consulta_expressio(const string &s);
     void imprimir_menu() const;
@@ -39,17 +39,23 @@ public:
 //Modificadors
 	/** @brief Afageix una tasca a l'Agenda
     \pre: 
-    \post: b = true, map<Data,Tasca> m conte una tasca nova
+    \post: b = true, map<Temps,Tasca> m conte una tasca nova
     	   b = false, la tasca no s'ha afegit */
     void apuntar_tasca(const string &data, const string &hora, const Tasca &t, bool &be);
     
-    /** @brief Modifica text, data o hora de la tasca 'n' del menu
+    /** @brief Modifica titol, data o hora de la tasca n-essima del menu
     \pre: 0 <= n < menu.size(), no es modificaran els pertinents atributs de tasca per els p.e. buits
     \post: b = true, s'ha modificat els pertinents atributs de tasca per els p.e. no buits de la tasca 'n' del menu
            b = false, no s'ha modificat cap tasca */
 	void modificar_tasca(const int &n, const string &titol, const string &data, const string &hora, bool &be);
-    void afegir_etiqueta_tasca(const int &n, const string &etiqueta);
-	 /** @brief Tracta l'esborrat relacionat amb una tasca
+  
+    /** @brief Afageix una tasca a la n-essima tasca
+    \pre: 0 <= n < menu.size(), no es modificaran els pertinents atributs de tasca per els p.e. buits
+    \post: be = true, s'ha afegit l'etiqueta
+           be = false, no s'ha afegit */
+    void afegir_etiqueta_tasca(const int &n, const string &etiqueta, bool &be);
+	
+     /** @brief Tracta l'esborrat relacionat amb una tasca
     \pre: 0 <= n < menu.size(), t = "tasca" o t = "etiquetes" o bé t conte una etiqueta 
     \post: n fa referencia a la tasca si:
         t = "tasca" s'esborra la tasca
@@ -59,8 +65,8 @@ public:
 
 	 /** @brief Avanca el rellotge d'hora
     \pre: si data o hora, es buit no es modifica
-    \post: be = true, si la nova Data és >= a rellotge, s'ha modificat
-           be = false, si la nova Data és < a rellotge, no s'ha modificat*/
+    \post: be = true, si el nou Temps és >= a rellotge, s'ha modificat
+           be = false, si el nou Temps és < a rellotge, no s'ha modificat*/
 	void avancar_rellotge(const string data, const string hora, bool &be);
 
 //Consultors

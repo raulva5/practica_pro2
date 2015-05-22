@@ -12,7 +12,7 @@ void preparar_apuntar_tasca(Comanda& c, Agenda &ag, bool &be) {
 	Tasca t(c.titol());	
 	int n = c.nombre_etiquetes();
 	for(int i = 0; i < n; ++i){
-		t.afegir_etiqueta(c.etiqueta(i+1));
+		t.afegir_etiqueta(c.etiqueta(i+1), be);
 	}
 
 	string data;
@@ -49,7 +49,6 @@ void preparar_consulta(Comanda& c, Agenda &ag) {
 }
 
 void preparar_modificacio(Comanda& c, Agenda &ag, bool &r) {
-	
 	int n_tasca = c.tasca();
 	
 	string titol;
@@ -57,9 +56,6 @@ void preparar_modificacio(Comanda& c, Agenda &ag, bool &r) {
 	if(c.te_titol()){
 		titol = c.titol();
 	}
-
-	int n = c.nombre_etiquetes();
-	for(int i = 0; i < n; ++i) ag.afegir_etiqueta_tasca(n_tasca, c.etiqueta(i+1));
 
 	string data;
 	data.clear();
@@ -71,9 +67,13 @@ void preparar_modificacio(Comanda& c, Agenda &ag, bool &r) {
 	hora.clear();
 	if(c.te_hora()){
 		hora = c.hora();
-	}	
+	}
 	
 	ag.modificar_tasca(n_tasca, titol, data, hora, r);
+	
+	bool aux;
+	int n = c.nombre_etiquetes();
+	for(int i = 0; i < n; ++i) ag.afegir_etiqueta_tasca(n_tasca, c.etiqueta(i+1), aux);
 }
 
 
