@@ -1,0 +1,4 @@
+Implementació de la Classe Tasca, vist que un map amb «key» temps tan sols feia falta contenir el títol i la/es etiquetes en un lloc. A l'hora d'escriure la Tasca sencera amb una consulta, volíem que les etiquetes quedessin ordenades, per tal de obtindré un temps d'accés logarítmic he fet servir un map<string,bool>.
+•	jp_raul.villalba.almeira_entrada.txt
+•	jp_raul.villalba.almeira_sortida.txt
+El joc de proves intenta veure les excepcions en que no s’hagi de fer res, però no surti error de no realitzat, tanmateix intenta fer modificacions de mes d’una etiqueta, de consultes més complexes, esborrats de tasques al menú i al map correctament, un seguit de modificacions al rellotge i  algun interval mal format.
