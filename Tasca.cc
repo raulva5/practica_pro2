@@ -55,7 +55,7 @@ string Tasca::llegir_paraula(const string &s, int &i){
 	return s.substr(start,(i - start));
 }
 
-bool Tasca::expressio(const string &expr, int &i){ //Expr = ( E op E );
+bool Tasca::expressio(const string &expr, int &i){
 	bool e1,e2;
 	++i;
 	//Avalua E esquerre	
@@ -63,13 +63,27 @@ bool Tasca::expressio(const string &expr, int &i){ //Expr = ( E op E );
 	else e1 = te_etiqueta(llegir_paraula(expr, i));
 	char op = expr[i];
 	++i;
-	//Avalua E dret
-	if(expr[i] == '(') e2 = expressio(expr, i);
-	else e2 = te_etiqueta(llegir_paraula(expr, i));
-	++i;
-	//Retorna ( E op E )
-	if(op == '.') return e1 and e2;
-	else return e1 or e2;
+	bool lazy_eval, res;
+	if(not e1 and op == '.'){ lazy_eval = true; //Comprovar si hi ha lazy_evaluation
+		res = false;
+	}else if(e1 and op == ','){ lazy_eval = true;
+		res = true;
+	}else lazy_eval = false;
+	if(lazy_eval){ //Si tenim lazy_evaluation l'executem
+		int oberts = 1;
+		while(oberts != 0){
+			if(expr[i] == '(') ++oberts;
+			else if(expr[i] == ')') --oberts;
+			++i;
+		}
+		return res;
+	}else{ //Avalua E dret
+		if(expr[i] == '(') e2 = expressio(expr, i);
+		else e2 = te_etiqueta(llegir_paraula(expr, i));
+		++i;
+		if(op == '.') return e1 and e2;
+		else return e1 or e2;
+	}	
 }
 
 //Lector / Escritor

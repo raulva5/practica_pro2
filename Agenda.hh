@@ -16,8 +16,8 @@
 using namespace std;
 /** @class Agenda
     @brief Representa una agenda.
-*/
-
+    Invariants: Les tasques estan ordenades segons Temps, tant al menu com al map.
+                Rellotge marca un Temps*/
 class Agenda {
 private:
 	Temps rellotge;
@@ -39,24 +39,24 @@ public:
 //Modificadors
 	/** @brief Afageix una tasca a l'Agenda
     \pre: 
-    \post: b = true, map<Temps,Tasca> m conte una tasca nova
+    \post: b = true, Agenda conte una tasca nova
     	   b = false, la tasca no s'ha afegit */
     void apuntar_tasca(const string &data, const string &hora, const Tasca &t, bool &be);
     
     /** @brief Modifica titol, data o hora de la tasca n-essima del menu
-    \pre: 0 <= n < menu.size(), no es modificaran els pertinents atributs de tasca per els p.e. buits
+    \pre: 0 <= n < tamany menu, no es modificaran els pertinents atributs de tasca per els p.e. buits
     \post: b = true, s'ha modificat els pertinents atributs de tasca per els p.e. no buits de la tasca 'n' del menu
            b = false, no s'ha modificat cap tasca */
 	void modificar_tasca(const int &n, const string &titol, const string &data, const string &hora, bool &be);
   
     /** @brief Afageix una tasca a la n-essima tasca
-    \pre: 0 <= n < menu.size(), no es modificaran els pertinents atributs de tasca per els p.e. buits
+    \pre: 0 <= n < tamany menu, no es modificaran els pertinents atributs de tasca per els p.e. buits
     \post: be = true, s'ha afegit l'etiqueta
            be = false, no s'ha afegit */
     void afegir_etiqueta_tasca(const int &n, const string &etiqueta, bool &be);
 	
      /** @brief Tracta l'esborrat relacionat amb una tasca
-    \pre: 0 <= n < menu.size(), t = "tasca" o t = "etiquetes" o bé t conte una etiqueta 
+    \pre: 0 <= n < tamany menu, t = "tasca" o t = "etiquetes" o bé t conte una etiqueta 
     \post: n fa referencia a la tasca si:
         t = "tasca" s'esborra la tasca
         t = "etiquetes" esborra totes les etiquetes

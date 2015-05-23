@@ -11,8 +11,9 @@
 #include <map>
 using namespace std;
 /** @class Tasca
-    @brief Representa el títol de la tasca i la/es etiqueta/es
- */
+    @brief Representa una tasca amb titol i etiquetes
+    Invariants: Les etiquetes estan ordenades alfabeticament.
+                Titol no buit*/
 class Tasca {
 
 private:

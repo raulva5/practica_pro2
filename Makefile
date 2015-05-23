@@ -26,7 +26,7 @@ provisional:
 	tar -cvf practica.tar Temps.* Agenda.* Tasca.* program.cc Makefile
 
 practica.tar:
-	tar -cvf practica.tar Temps.* Agenda.* Tasca.* program.cc Makefile equip.pdf jp_*
+	tar -cvf practica.tar Temps.* Agenda.* Tasca.* program.cc Makefile equip.pdf jp_* html.zip
 
 clean:
 	rm *.o

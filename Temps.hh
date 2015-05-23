@@ -10,10 +10,8 @@
 #include <sstream>
 
 using namespace std;
-/** @class Dat
-    @brief Representa la data i hora d'una tasca, ens permet llegir i consultar la data i/o l'hora de la tasca
- */
-
+/** @class Temps
+    @brief Representa una data DD.MM.YY HH:DD*/
 class Temps {
 
 private:

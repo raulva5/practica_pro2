@@ -1,0 +1,185 @@
+
++ 11.05.15 preparar maletes per el viatge 12:00 
+
++ viatge a Paris 15.05.15 20:00 #avio #maletes
+
++ 15.05.15 22:00 #aeroport #hotel #maletes arribada a Paris 
+
++ 16.05.15 10:00 sortida a la ciutat #turisme #comprar 
+
++ anar al museu 16.05.15 12:00 #aigua #gorra
+
++ sortir amb bici 18.05.15 12:00 #menjar #refresc #diners #cadena #turisme
+
++ tornar a casa 22.05.15 09:30 #maletes #avio 
+
+?
+1 preparar maletes per el viatge 11.05.15 12:00
+2 viatge a Paris 15.05.15 20:00 #avio #maletes
+3 arribada a Paris 15.05.15 22:00 #aeroport #hotel #maletes
+4 sortida a la ciutat 16.05.15 10:00 #comprar #turisme
+5 anar al museu 16.05.15 12:00 #aigua #gorra
+6 sortir amb bici 18.05.15 12:00 #cadena #diners #menjar #refresc #turisme
+7 tornar a casa 22.05.15 09:30 #avio #maletes
+
+2 #avio #mobil
+
+6 sortir amb patins 16.05.15
+No s'ha realitzat
+
+? #maletes 
+1 viatge a Paris 15.05.15 20:00 #avio #maletes #mobil
+2 arribada a Paris 15.05.15 22:00 #aeroport #hotel #maletes
+3 tornar a casa 22.05.15 09:30 #avio #maletes
+Error de format
+
+passat?
+
+? 15.05.15
+1 viatge a Paris 15.05.15 20:00 #avio #maletes #mobil
+2 arribada a Paris 15.05.15 22:00 #aeroport #hotel #maletes
+Error de format
+
+? 12.05.15 08.05.15
+
+? 18.05.15 13.05.15 
+
+? #refresc 12.05.15 23.05.15
+1 sortir amb patins 18.05.15 12:00 #cadena #diners #menjar #refresc #turisme
+
+? (#gorra,#menjar)
+1 anar al museu 16.05.15 12:00 #aigua #gorra
+2 sortir amb patins 18.05.15 12:00 #cadena #diners #menjar #refresc #turisme
+
+? 14.05.15 (#volar,#avio)
+
+? #turisme
+1 sortida a la ciutat 16.05.15 10:00 #comprar #turisme
+2 sortir amb patins 18.05.15 12:00 #cadena #diners #menjar #refresc #turisme
+
+? (#esport.#lleure)
+Error de format
+
+? ((#maletes,#refresc),(#avio.#gorra)) 
+1 viatge a Paris 15.05.15 20:00 #avio #maletes #mobil
+2 arribada a Paris 15.05.15 22:00 #aeroport #hotel #maletes
+3 sortir amb patins 18.05.15 12:00 #cadena #diners #menjar #refresc #turisme
+4 tornar a casa 22.05.15 09:30 #avio #maletes
+
+5 -#aigua
+No s'ha realitzat
+
+5 #refresc 
+No s'ha realitzat
+
+?
+1 preparar maletes per el viatge 11.05.15 12:00
+2 viatge a Paris 15.05.15 20:00 #avio #maletes #mobil
+3 arribada a Paris 15.05.15 22:00 #aeroport #hotel #maletes
+4 sortida a la ciutat 16.05.15 10:00 #comprar #turisme
+5 anar al museu 16.05.15 12:00 #aigua #gorra
+6 sortir amb patins 18.05.15 12:00 #cadena #diners #menjar #refresc #turisme
+7 tornar a casa 22.05.15 09:30 #avio #maletes
+
+-1
+
+?
+1 viatge a Paris 15.05.15 20:00 #avio #maletes #mobil
+2 arribada a Paris 15.05.15 22:00 #aeroport #hotel #maletes
+3 sortida a la ciutat 16.05.15 10:00 #comprar #turisme
+4 anar al museu 16.05.15 12:00 #aigua #gorra
+5 sortir amb patins 18.05.15 12:00 #cadena #diners #menjar #refresc #turisme
+6 tornar a casa 22.05.15 09:30 #avio #maletes
+
+3 -etiquetes
+
+?
+1 viatge a Paris 15.05.15 20:00 #avio #maletes #mobil
+2 arribada a Paris 15.05.15 22:00 #aeroport #hotel #maletes
+3 sortida a la ciutat 16.05.15 10:00
+4 anar al museu 16.05.15 12:00 #aigua #gorra
+5 sortir amb patins 18.05.15 12:00 #cadena #diners #menjar #refresc #turisme
+6 tornar a casa 22.05.15 09:30 #avio #maletes
+
+rellotge 16.05.15 09:00
+
+4 sortir a comprar 
+
+? ((#maletes,#refresc),(#avio.#gorra))
+1 sortir amb patins 18.05.15 12:00 #cadena #diners #menjar #refresc #turisme
+2 tornar a casa 22.05.15 09:30 #avio #maletes
+
+?
+1 sortida a la ciutat 16.05.15 10:00
+2 sortir a comprar 16.05.15 12:00 #aigua #gorra
+3 sortir amb patins 18.05.15 12:00 #cadena #diners #menjar #refresc #turisme
+4 tornar a casa 22.05.15 09:30 #avio #maletes
+
+-3
+
+?
+1 sortida a la ciutat 16.05.15 10:00
+2 sortir a comprar 16.05.15 12:00 #aigua #gorra
+3 tornar a casa 22.05.15 09:30 #avio #maletes
+
+rellotge?
+16.05.15 09:00
+
+passat?
+1 viatge a Paris 15.05.15 20:00 #avio #maletes #mobil
+2 arribada a Paris 15.05.15 22:00 #aeroport #hotel #maletes
+
+rellotge 17.05.15
+
+rellotge 04:00
+No s'ha realitzat
+
+passat?
+1 viatge a Paris 15.05.15 20:00 #avio #maletes #mobil
+2 arribada a Paris 15.05.15 22:00 #aeroport #hotel #maletes
+3 sortida a la ciutat 16.05.15 10:00
+4 sortir a comprar 16.05.15 12:00 #aigua #gorra
+
+rellotge 14.05.15 08:01
+No s'ha realitzat
+
+passat?
+1 viatge a Paris 15.05.15 20:00 #avio #maletes #mobil
+2 arribada a Paris 15.05.15 22:00 #aeroport #hotel #maletes
+3 sortida a la ciutat 16.05.15 10:00
+4 sortir a comprar 16.05.15 12:00 #aigua #gorra
+
+rellotge 15.05.15 22:00
+No s'ha realitzat
+
+?
+1 tornar a casa 22.05.15 09:30 #avio #maletes
+
++ acampada #sacs #refresc #menjar #roba #musica 18.05.15 19:30
+
++ fotografiar torre eiffel #camara #mochilla #mapa 14:12
+
++ concert festa major 23:00 19.05.15
+
+?
+1 fotografiar torre eiffel 17.05.15 14:12 #camara #mapa #mochilla
+2 acampada 18.05.15 19:30 #menjar #musica #refresc #roba #sacs
+3 concert festa major 19.05.15 23:00
+4 tornar a casa 22.05.15 09:30 #avio #maletes
+
+passat?
+1 viatge a Paris 15.05.15 20:00 #avio #maletes #mobil
+2 arribada a Paris 15.05.15 22:00 #aeroport #hotel #maletes
+3 sortida a la ciutat 16.05.15 10:00
+4 sortir a comprar 16.05.15 12:00 #aigua #gorra
+
+2 -etiquetes
+No s'ha realitzat
+
+?
+1 fotografiar torre eiffel 17.05.15 14:12 #camara #mapa #mochilla
+2 acampada 18.05.15 19:30 #menjar #musica #refresc #roba #sacs
+3 concert festa major 19.05.15 23:00
+4 tornar a casa 22.05.15 09:30 #avio #maletes
+
+sortir

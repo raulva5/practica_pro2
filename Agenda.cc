@@ -157,7 +157,6 @@
 	}
 
 	void Agenda::consulta_passat(){
-
 		map<Temps,Tasca>::iterator it,itup;
 		itup = m.lower_bound(rellotge);
 

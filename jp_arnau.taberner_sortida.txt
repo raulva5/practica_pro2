@@ -1,0 +1,131 @@
+
++ 22.05.15 08:00 Taller de PRO2 #PRO2
+
++ 18.05.15 10:00 Classe de M1 #M1
+
++ 18.05.15 08:00 Classe de M2 #M2
+
++ 19.05.15 08:00 Classe de PRO2 #PRO2
+
++ 19.05.15 10:00 Classe de EC #EC
+
++ 20.05.15 10:00 Festa de BIO! #festa #bio
+
++ 21.05.15 10:00 Em aconseguit el verd! #festa #PRO2 #practica #totverd
+
++ 24.05.15 10:00 Entregar practica PRO2 #PRO2 #practica
+
++ 23.06.15 00:00 Sant Joan #santjoan
+
+?
+1 Classe de M2 18.05.15 08:00 #M2
+2 Classe de M1 18.05.15 10:00 #M1
+3 Classe de PRO2 19.05.15 08:00 #PRO2
+4 Classe de EC 19.05.15 10:00 #EC
+5 Festa de BIO! 20.05.15 10:00 #bio #festa
+6 Em aconseguit el verd! 21.05.15 10:00 #PRO2 #festa #practica #totverd
+7 Taller de PRO2 22.05.15 08:00 #PRO2
+8 Entregar practica PRO2 24.05.15 10:00 #PRO2 #practica
+9 Sant Joan 23.06.15 00:00 #santjoan
+
+rellotge?
+20.04.15 00:00
+
+1 #NoHoraSiHashtag 18.05.15 10:00 #ambiguetat
+No s'ha realitzat
+
+1 Aixo es una ambiguetat
+
+1 #mates 18.05.15 10:01
+
+3 24.05.15 10:00 No hora si titol #ambiguetat
+No s'ha realitzat
+
+rellotge 18.05.15 10:01
+
+1 NO canviis
+
+? #ambiguetat
+1 NO canviis 18.05.15 10:01 #M2 #NoHoraSiHashtag #ambiguetat #mates
+2 No hora si titol 19.05.15 08:00 #PRO2 #ambiguetat
+
+1 la tasca canvia pero l'hora no aixo que implica? #ambiguetat
+
+-1
+
+4 Fora de menu
+No s'ha realitzat
+Error de format
+
+1 Modifica algo que ja no existeix
+No s'ha realitzat
+
+passat?
+1 Classe de M1 18.05.15 10:00 #M1
+
+1 Aqui no es poden fer modificacions
+No s'ha realitzat
+
+2 #niafegirhastags
+No s'ha realitzat
+
+3 19.02.16 ni pasarla a futur
+No s'ha realitzat
+
+-3
+No s'ha realitzat
+
+3 Ep que m'han intentat
+No s'ha realitzat
+
+5 Fora de menu
+No s'ha realitzat
+
+rellotge 22.05.15 10:00
+
++ 20.05.15 08:00 Taller de M2 #M2
+No s'ha realitzat
+
+?
+1 Entregar practica PRO2 24.05.15 10:00 #PRO2 #practica
+2 Sant Joan 23.06.15 00:00 #santjoan
+
+1 Modifica't!
+
+rellotge 21.05.15
+No s'ha realitzat
+
++ hashtags 23:59 #un #dos #tres #quatre #cinc #sis #set #vuit #tots #parells #senars
+
++ hashtags 23:58 #un #tres #cinc #set #senars
+
++ hashtags 23:57 #dos #quatre #sis #vuit #parells
+
+? #PRO2
+1 Modifica't! 24.05.15 10:00 #PRO2 #practica
+
+? (#PRO2.#practica)
+1 Modifica't! 24.05.15 10:00 #PRO2 #practica
+
+? ((#un.#tres),(#dos.#quatre))
+1 hashtags 22.05.15 23:57 #dos #parells #quatre #sis #vuit
+2 hashtags 22.05.15 23:58 #cinc #senars #set #tres #un
+3 hashtags 22.05.15 23:59 #cinc #dos #parells #quatre #senars #set #sis #tots #tres #un #vuit
+
+? (((#un.#tres).(#cinc.#set)),((#dos.#quatre).(#sis.#vuit)))
+1 hashtags 22.05.15 23:57 #dos #parells #quatre #sis #vuit
+2 hashtags 22.05.15 23:58 #cinc #senars #set #tres #un
+3 hashtags 22.05.15 23:59 #cinc #dos #parells #quatre #senars #set #sis #tots #tres #un #vuit
+
+? ((((#un.#tres).(#cinc.#set)),((#dos.#quatre).(#sis.#vuit))).#parells)
+1 hashtags 22.05.15 23:57 #dos #parells #quatre #sis #vuit
+2 hashtags 22.05.15 23:59 #cinc #dos #parells #quatre #senars #set #sis #tots #tres #un #vuit
+
+? ((((#un.#tres).(#cinc.#set)),((#dos.#quatre).(#sis.#vuit))).#senars)
+1 hashtags 22.05.15 23:58 #cinc #senars #set #tres #un
+2 hashtags 22.05.15 23:59 #cinc #dos #parells #quatre #senars #set #sis #tots #tres #un #vuit
+
+? (((#un.#tres).(#cinc.#set)).((#dos.#quatre).(#sis.#vuit)))
+1 hashtags 22.05.15 23:59 #cinc #dos #parells #quatre #senars #set #sis #tots #tres #un #vuit
+
+sortir

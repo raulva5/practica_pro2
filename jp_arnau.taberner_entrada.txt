@@ -1,0 +1,46 @@
++ 22.05.15 08:00 Taller de PRO2 #PRO2
++ 18.05.15 10:00 Classe de M1 #M1
++ 18.05.15 08:00 Classe de M2 #M2
++ 19.05.15 08:00 Classe de PRO2 #PRO2
++ 19.05.15 10:00 Classe de EC #EC
++ 20.05.15 10:00 Festa de BIO! #festa #bio
++ 21.05.15 10:00 Em aconseguit el verd! #festa #PRO2 #practica #totverd
++ 24.05.15 10:00 Entregar practica PRO2 #PRO2 #practica
++ 23.06.15 00:00 Sant Joan #santjoan
+?
+rellotge?
+1 #NoHoraSiHashtag 18.05.15 10:00 #ambiguetat
+1 Aixo es una ambiguetat
+1 #mates 18.05.15 10:01
+3 24.05.15 10:00 No hora si titol #ambiguetat
+rellotge 18.05.15 10:01
+1 NO canviis
+? #ambiguetat
+1 la tasca canvia pero l'hora no aixo que implica? #ambiguetat
+-1
+4 Fora de menu
+-2 Fora de menu
+1 Modifica algo que ja no existeix
+passat?
+1 Aqui no es poden fer modificacions
+2 #niafegirhastags
+3 19.02.16 ni pasarla a futur
+-3
+3 Ep que m'han intentat
+5 Fora de menu
+rellotge 22.05.15 10:00
++ 20.05.15 08:00 Taller de M2 #M2
+?
+1 Modifica't!
+rellotge 21.05.15
++ hashtags 23:59 #un #dos #tres #quatre #cinc #sis #set #vuit #tots #parells #senars
++ hashtags 23:58 #un #tres #cinc #set #senars
++ hashtags 23:57 #dos #quatre #sis #vuit #parells
+? #PRO2
+? (#PRO2.#practica)
+? ((#un.#tres),(#dos.#quatre))
+? (((#un.#tres).(#cinc.#set)),((#dos.#quatre).(#sis.#vuit)))
+? ((((#un.#tres).(#cinc.#set)),((#dos.#quatre).(#sis.#vuit))).#parells)
+? ((((#un.#tres).(#cinc.#set)),((#dos.#quatre).(#sis.#vuit))).#senars)
+? (((#un.#tres).(#cinc.#set)).((#dos.#quatre).(#sis.#vuit)))
+sortir
