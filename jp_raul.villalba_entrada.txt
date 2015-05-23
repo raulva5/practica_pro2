@@ -1,10 +1,10 @@
-+ 11.05.15 preparar maletes per el viatge 12:00 
 + viatge a Paris 15.05.15 20:00 #avio #maletes
++ tornar a casa 22.05.15 09:30 #maletes #avio 
 + 15.05.15 22:00 #aeroport #hotel #maletes arribada a Paris 
 + 16.05.15 10:00 sortida a la ciutat #turisme #comprar 
++ 11.05.15 preparar maletes per el viatge 12:00 
 + anar al museu 16.05.15 12:00 #aigua #gorra
 + sortir amb bici 18.05.15 12:00 #menjar #refresc #diners #cadena #turisme
-+ tornar a casa 22.05.15 09:30 #maletes #avio 
 ?
 2 #avio #mobil
 6 sortir amb patins 16.05.15
@@ -19,8 +19,8 @@ passat?
 ? (#gorra,#menjar)
 ? 14.05.15 (#volar,#avio)
 ? #turisme
-? (#esport.#lleure)
-? (comprar.#turisme)
+5 #coche
+? (((#avio.#coche),(#aigua,#menjar)),(#gorra.#aigua))
 ? ((#maletes,#refresc),(#avio.#gorra)) 
 5 -#aigua
 5 #refresc 
